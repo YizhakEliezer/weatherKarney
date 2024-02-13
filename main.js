@@ -3,9 +3,36 @@ async function main() {
     const data= await re.json();
     const convertTDegreesCelsius=data.main.temp-273.15;
     let formattedNumberTemp = convertTDegreesCelsius.toFixed(1);
+    console.log(data);
     console.log(formattedNumberTemp);
-     let weatherInMyHomeKarneyShomron=document.querySelector(".black-border");
-     weatherInMyHomeKarneyShomron.innerHTML+="<br>"+formattedNumberTemp+ "°C";
+     let mode=data.weather[0].main;
+    
+     let icon="https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
+     if(mode==="Clear"){
+      mode="נקי";
+     }
+     else if(mode==="Clouds"){
+      mode="מעונן";
+     }else if(mode==="Rain"){
+      mode="גשם";
+     } 
+     
+     else if(mode==="Thunderstorm"){
+      mode="סופת רעמים";
+     }  
+
+     else if(mode==="Drizzle"){
+      mode="טפטוף";
+     }
+     
+     else if(mode==="Snow"){
+      mode="שלג";
+     }  
+       console.log(icon);
+       let weatherInMyHomeKarneyShomron=document.querySelector(".black-border");
+     weatherInMyHomeKarneyShomron.innerHTML+="<br>"+formattedNumberTemp+ "°C"+"<br>"+mode+"<br>";
+     weatherInMyHomeKarneyShomron.innerHTML+="<img src="+icon+">";
+
 //    const ree=await fetch('https://api.openweathermap.org/data/2.5/weather?id=833&lang=IR&appid=dcf36bad979cb7811d2a97058a2ccbf2');
 //    const cityList=await fetch('city.list.json');
 //    const object=await cityList.json();
@@ -23,10 +50,6 @@ async function main() {
 //    option.value = i; // Assuming you want to use the index as the value
 //    selectElement.add(option);
 // }
-
-
-
-
 
  }
 

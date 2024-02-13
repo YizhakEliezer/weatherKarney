@@ -11,9 +11,9 @@
 .black-border {
     color: rgb(82, 151, 151);
     text-align: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     font-family: "Amatic SC", sans-serif;
-  font-size: 15vh;
+  font-size: 13vh;
   /* width: 200%; */
  
 } 
