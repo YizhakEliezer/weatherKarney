@@ -3,7 +3,7 @@
     justify-content: center; /* Horizontally centers the content */
      align-items: center;/* Vertically centers the content */
      flex-direction: column;
-    height: 120vh; 
+    height: 90vh; 
      /* Makes the container take up the full height of the viewport */
  } 
 
