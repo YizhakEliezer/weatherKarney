@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+     align-items: center;/* Vertically centers the content */
+     flex-direction: column;
+     height: 100vh; 
+     /* Makes the container take up the full height of the viewport */
+ } 
+
+
+.black-border {
+    color: rgb(82, 151, 151);
+    text-align: center;
+    border: 2px solid black;
+    font-family: "Amatic SC", sans-serif;
+  font-size: 15vh;
+  /* width: 200%; */
+ 
+} 
+
+body{
+  background-color: rgb(10, 10, 10);
+}
+
+/* #your-select-element-id{
+  color:rgb(82, 151, 151);
+  font-family: "Amatic SC", sans-serif;
+  font-size: 20px;
+  width: 10%;
+ 
+}
+
+
+.container option{
+  color:rgb(82, 151, 151);
+  font-family: "Amatic SC", sans-serif;
+  font-size: 20px;
+  width: 20%;
+  height:   50%;
+} */
+
