@@ -18,6 +18,17 @@
  
 } 
 
+
+@media only screen and (max-width: 600px) {
+  .black-border {
+    font-size: 10vh;/* Adjust the size for cell phones */
+  }
+  .container{
+    height: 70vh; 
+  }
+
+}
+
 body{
   background-color: rgb(10, 10, 10);
 }
