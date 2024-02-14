@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Check if it has been more than an hour since the last access
     // 3600000 milliseconds = 1 hour
-    const re = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid=378e96a64c03bf97d24b6afdfbce95c4');
+    const re = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=32.174690&lon=35.308952&appid=378e96a64c03bf97d24b6afdfbce95c4');
     const data = await re.json();
     console.log(data);
  
