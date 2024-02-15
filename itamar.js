@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
          // Construct API URL with latitude, longitude, and API key
          const apiKey = 'dcf36bad979cb7811d2a97058a2ccbf2';
-         const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+         const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=32.174690&lon=35.308952&appid=${apiKey}`;
          try {
              // Fetch weather data
              const re = await fetch(apiUrl);
