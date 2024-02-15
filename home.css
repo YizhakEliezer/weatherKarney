@@ -136,7 +136,11 @@ padding: 15px;
  margin: 10px;
  }
  #dataTime img{
-  margin: -25px;
+  margin: 5px;
+width: 60px;
+background-color: rgb(174, 228, 228);
+/* border: 10px solid red; */
+border-radius: 10px;
   }
 
 
