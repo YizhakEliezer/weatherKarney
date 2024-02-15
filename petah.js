@@ -101,17 +101,13 @@ document.addEventListener("DOMContentLoaded", function() {
   async function fetchData() {
 
 
-    if (navigator.geolocation) {
-     // Get the current position
-     navigator.geolocation.getCurrentPosition(async function(position) {
-         // Extract latitude and longitude from the position object
-         const latitude = position.coords.latitude;
-         const longitude = position.coords.longitude;
+   
+    
 
          // Construct API URL with latitude, longitude, and API key
          const apiKey = 'dcf36bad979cb7811d2a97058a2ccbf2';
          const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=32.097780&lon=34.894630&appid=${apiKey}`;
-         try {
+       
              // Fetch weather data
              const re = await fetch(apiUrl);
              const data = await re.json();
@@ -185,17 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
            //    "<p>"+tempDay3+" ° C"+ "<br>"+getMode(weatherDay3)+"<img src="+iconDay3+">"+'</p>'+
            //    "<p>"+tempDay4+" ° C"+ "<br>"+getMode(weatherDay4)+"<img src="+iconDay4+">"+'</p>'+
            //    "<p>"+tempDay5+" ° C"+ "<br>"+getMode(weatherDay5)+"<img src="+iconDay5+">"+'</p>';
-         } catch (error) {
-             console.error('Error fetching weather data:', error);
-         }
-     }, function(error) {
-         // Handle errors when retrieving the location
-         console.error('Error getting location:', error);
-     });
- } else {
-     // Geolocation is not supported by this browser
-     console.log('Geolocation is not supported by this browser.');
- }
+   
 
 
 
