@@ -97,107 +97,105 @@ document.addEventListener("DOMContentLoaded", function() {
 
   async function fetchData() {
 
-    // Check if it has been more than an hour since the last access
-    // 3600000 milliseconds = 1 hour
-    const re = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=32.174690&lon=35.308952&appid=378e96a64c03bf97d24b6afdfbce95c4');
-    const data = await re.json();
-    console.log(data);
- 
- 
-    const dataDay1=data.list[3].dt_txt.substring(0, 10);
-    const tempDay1=(data.list[3].main.temp - 273.15).toFixed(1);
-    const weatherDay1=data.list[3].weather[0].main;
-    const iconDay1="https://openweathermap.org/img/wn/"+data.list[3].weather[0].icon+"@2x.png";
- 
-    const dataDay2=data.list[11].dt_txt.substring(0, 10);
-    const tempDay2=(data.list[11].main.temp - 273.15).toFixed(1);
-    const weatherDay2=data.list[11].weather[0].main;
-    const iconDay2="https://openweathermap.org/img/wn/"+data.list[11].weather[0].icon+"@2x.png";
- 
-    const dataDay3=data.list[19].dt_txt.substring(0, 10);
-    const tempDay3=(data.list[19].main.temp - 273.15).toFixed(1);
-    const weatherDay3=data.list[19].weather[0].main;
-    const iconDay3="https://openweathermap.org/img/wn/"+data.list[19].weather[0].icon+"@2x.png";
- 
-    const dataDay4=data.list[27].dt_txt.substring(0, 10);
-    const tempDay4=(data.list[27].main.temp - 273.15).toFixed(1);
-    const weatherDay4=data.list[27].weather[0].main;
-    const iconDay4="https://openweathermap.org/img/wn/"+data.list[27].weather[0].icon+"@2x.png";
- 
-    const dataDay5=data.list[35].dt_txt.substring(0, 10);
-    const tempDay5=(data.list[35].main.temp - 273.15).toFixed(1);
-    const weatherDay5=data.list[35].weather[0].main;
-    const iconDay5="https://openweathermap.org/img/wn/"+data.list[35].weather[0].icon+"@2x.png";
-    
- 
-    
- 
- function getMode(mode){
-       if (mode === "Clear") {
-          return  mode = "נקי";
-   } else if (mode === "Clouds") {
-    return  mode = "מעונן";
-   } else if (mode === "Rain") {
-    return  mode = "גשום";
-   } else if (mode === "Thunderstorm") {
-    return  mode = "סופת רעמים";
-   } else if (mode === "Drizzle") {
-    return mode = "טפטוף";
-   } else if (mode === "Snow") {
-      return mode = "שלג";
-   }
+
+    if (navigator.geolocation) {
+     // Get the current position
+     navigator.geolocation.getCurrentPosition(async function(position) {
+         // Extract latitude and longitude from the position object
+         const latitude = position.coords.latitude;
+         const longitude = position.coords.longitude;
+
+         // Construct API URL with latitude, longitude, and API key
+         const apiKey = 'dcf36bad979cb7811d2a97058a2ccbf2';
+         const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+         try {
+             // Fetch weather data
+             const re = await fetch(apiUrl);
+             const data = await re.json();
+             console.log(data);
+          
+          
+             const dataDay1=data.list[5].dt_txt.substring(6, 10);
+             const tempDay1=(data.list[5].main.temp - 273.15).toFixed(1);
+             const weatherDay1=data.list[5].weather[0].main;
+             const iconDay1="https://openweathermap.org/img/wn/"+data.list[3].weather[0].icon+"@2x.png";
+          
+             const dataDay2=data.list[13].dt_txt.substring(6, 10);
+             const tempDay2=(data.list[13].main.temp - 273.15).toFixed(1);
+             const weatherDay2=data.list[13].weather[0].main;
+             const iconDay2="https://openweathermap.org/img/wn/"+data.list[11].weather[0].icon+"@2x.png";
+          
+             const dataDay3=data.list[21].dt_txt.substring(6, 10);
+             const tempDay3=(data.list[21].main.temp - 273.15).toFixed(1);
+             const weatherDay3=data.list[21].weather[0].main;
+             const iconDay3="https://openweathermap.org/img/wn/"+data.list[19].weather[0].icon+"@2x.png";
+          
+             const dataDay4=data.list[29].dt_txt.substring(6, 10);
+             const tempDay4=(data.list[29].main.temp - 273.15).toFixed(1);
+             const weatherDay4=data.list[29].weather[0].main;
+             const iconDay4="https://openweathermap.org/img/wn/"+data.list[27].weather[0].icon+"@2x.png";
+          
+             const dataDay5=data.list[37].dt_txt.substring(6, 10);
+             const tempDay5=(data.list[37].main.temp - 273.15).toFixed(1);
+             const weatherDay5=data.list[37].weather[0].main;
+             const iconDay5="https://openweathermap.org/img/wn/"+data.list[35].weather[0].icon+"@2x.png";
+             
+          
+             
+          
+          function getMode(mode){
+                if (mode === "Clear") {
+                   return  mode = "נקי";
+            } else if (mode === "Clouds") {
+             return  mode = "מעונן";
+            } else if (mode === "Rain") {
+             return  mode = "גשום";
+            } else if (mode === "Thunderstorm") {
+             return  mode = "סופת רעמים";
+            } else if (mode === "Drizzle") {
+             return mode = "טפטוף";
+            } else if (mode === "Snow") {
+               return mode = "שלג";
+            }
+          }
+          
+          
+       //    function reverseStringFromEnd(str) {
+       //     str = str.replace("-", "");
+       //     return str.split('').reverse().join('');
+       // }
+          
+             const dataTime = document.getElementById("dataTime");
+             const tempTime = document.getElementById("tempTime");
+          
+             dataTime.innerHTML +=
+             "<p>"+dataDay1+'</p>'+"<img src="+iconDay1+">"+"<p1>"+getMode(weatherDay1)+"</p1>"+"<p2>"+tempDay1+" ° C"+"</p2>"+"<hr>"+
+             "<p>"+dataDay2+'</p>'+"<img src="+iconDay2+">"+"<p1>"+getMode(weatherDay2)+"</p1>"+"<p2>"+tempDay2+" ° C"+"</p2>"+"<hr>"+
+             "<p>"+dataDay3+'</p>'+"<img src="+iconDay3+">"+"<p1>"+getMode(weatherDay3)+"</p1>"+"<p2>"+tempDay3+" ° C"+"</p2>"+"<hr>"+
+             "<p>"+dataDay4+'</p>'+"<img src="+iconDay4+">"+"<p1>"+getMode(weatherDay4)+"</p1>"+"<p2>"+tempDay4+" ° C"+"</p2>"+"<hr>"+
+             "<p>"+dataDay5+'</p>'+"<img src="+iconDay5+">"+"<p1>"+getMode(weatherDay5)+"</p1>"+"<p2>"+tempDay5+" ° C"+"</p2>"; 
+           
+          
+           //   tempTime.innerHTML +=
+           //   "<p>"+tempDay1+" ° C"+ "<br>"+getMode(weatherDay1)+"<img src="+iconDay1+">"+'</p>'+
+           //    "<p>"+tempDay2+" ° C"+ "<br>"+getMode(weatherDay2)+"<img src="+iconDay2+">"+'</p>'+
+           //    "<p>"+tempDay3+" ° C"+ "<br>"+getMode(weatherDay3)+"<img src="+iconDay3+">"+'</p>'+
+           //    "<p>"+tempDay4+" ° C"+ "<br>"+getMode(weatherDay4)+"<img src="+iconDay4+">"+'</p>'+
+           //    "<p>"+tempDay5+" ° C"+ "<br>"+getMode(weatherDay5)+"<img src="+iconDay5+">"+'</p>';
+         } catch (error) {
+             console.error('Error fetching weather data:', error);
+         }
+     }, function(error) {
+         // Handle errors when retrieving the location
+         console.error('Error getting location:', error);
+     });
+ } else {
+     // Geolocation is not supported by this browser
+     console.log('Geolocation is not supported by this browser.');
  }
- 
- 
- 
- // console.log(getMode(weatherDay1));
- 
- // for(var  i = 0; i <  4; i++) {
- //    getMode(weatherDay1);
- //    console.log(weatherDay1);
- // }
- 
-    // console.log(data.list[3].dt_txt);
-    // console.log(data.list[3].main.temp);
-    // console.log(data.list[3].weather[0].main);
- 
- 
-    // console.log(data.list[11].dt_txt);
-    // console.log(data.list[11].main.temp);
-    // console.log(data.list[11].weather[0].main);
- 
-    // console.log(data.list[19].dt_txt);
-    // console.log(data.list[19].main.temp);
-    // console.log(data.list[19].weather[0].main);
- 
-    // console.log(data.list[27].dt_txt);
-    // console.log(data.list[27].main.temp);
-    // console.log(data.list[27].weather[0].main);
- 
-    // console.log(data.list[35].dt_txt);
-    // console.log(data.list[35].main.temp);
-    // console.log(data.list[35].weather[0].main);
- 
- 
- 
-    const dataTime = document.getElementById("dataTime");
-    const tempTime = document.getElementById("tempTime");
- 
-    dataTime.innerHTML +=
-    "<p>"+dataDay1+'</p>'+      
-    "<p>"+dataDay2+'</p>'+
-    "<p>"+dataDay3+'</p>'+
-    "<p>"+dataDay4+'</p>'+
-    "<p>"+dataDay5+'</p>'; 
-  
- 
-    tempTime.innerHTML +=
-    "<p>"+tempDay1+" ° C"+ "<br>"+getMode(weatherDay1)+"<img src="+iconDay1+">"+'</p>'+
-     "<p>"+tempDay2+" ° C"+ "<br>"+getMode(weatherDay2)+"<img src="+iconDay2+">"+'</p>'+
-     "<p>"+tempDay3+" ° C"+ "<br>"+getMode(weatherDay3)+"<img src="+iconDay3+">"+'</p>'+
-     "<p>"+tempDay4+" ° C"+ "<br>"+getMode(weatherDay4)+"<img src="+iconDay4+">"+'</p>'+
-     "<p>"+tempDay5+" ° C"+ "<br>"+getMode(weatherDay5)+"<img src="+iconDay5+">"+'</p>';
-    
- 
- }
- fetchData();
+
+
+
+
+}
+fetchData();
