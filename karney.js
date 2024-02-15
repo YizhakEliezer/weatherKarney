@@ -118,27 +118,28 @@ document.addEventListener("DOMContentLoaded", function() {
              const dataDay1=data.list[5].dt_txt.substring(6, 10);
              const tempDay1=(data.list[5].main.temp - 273.15).toFixed(1);
              const weatherDay1=data.list[5].weather[0].main;
-             const iconDay1="https://openweathermap.org/img/wn/"+data.list[3].weather[0].icon+"@2x.png";
+             const iconDay1="https://openweathermap.org/img/wn/"+data.list[5].weather[0].icon+"@2x.png";
           
              const dataDay2=data.list[13].dt_txt.substring(6, 10);
              const tempDay2=(data.list[13].main.temp - 273.15).toFixed(1);
              const weatherDay2=data.list[13].weather[0].main;
-             const iconDay2="https://openweathermap.org/img/wn/"+data.list[11].weather[0].icon+"@2x.png";
+             const iconDay2="https://openweathermap.org/img/wn/"+data.list[13].weather[0].icon+"@2x.png";
           
              const dataDay3=data.list[21].dt_txt.substring(6, 10);
              const tempDay3=(data.list[21].main.temp - 273.15).toFixed(1);
              const weatherDay3=data.list[21].weather[0].main;
-             const iconDay3="https://openweathermap.org/img/wn/"+data.list[19].weather[0].icon+"@2x.png";
+             const iconDay3="https://openweathermap.org/img/wn/"+data.list[21].weather[0].icon+"@2x.png";
           
              const dataDay4=data.list[29].dt_txt.substring(6, 10);
              const tempDay4=(data.list[29].main.temp - 273.15).toFixed(1);
              const weatherDay4=data.list[29].weather[0].main;
-             const iconDay4="https://openweathermap.org/img/wn/"+data.list[27].weather[0].icon+"@2x.png";
+             const iconDay4="https://openweathermap.org/img/wn/"+data.list[29].weather[0].icon+"@2x.png";
           
              const dataDay5=data.list[37].dt_txt.substring(6, 10);
              const tempDay5=(data.list[37].main.temp - 273.15).toFixed(1);
              const weatherDay5=data.list[37].weather[0].main;
-             const iconDay5="https://openweathermap.org/img/wn/"+data.list[35].weather[0].icon+"@2x.png";
+             const iconDay5="https://openweathermap.org/img/wn/"+data.list[37].weather[0].icon+"@2x.png";
+             
              
           
              
