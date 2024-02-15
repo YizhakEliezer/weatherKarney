@@ -186,3 +186,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 }
 fetchData();
+
+
+
+
+function updateBackground() {
+  var now = new Date();
+  var hour = now.getHours();
+
+  const blackborder=document.querySelector(".black-border");
+  // Night time (from 7 PM to 6 AM)
+  if (hour >= 20 || hour < 5) {
+      document.body.style.backgroundColor = "black";
+  }
+  // Morning time (from 6 AM to 10 AM)
+  else if (hour >= 5 && hour < 17) {
+      document.body.style.backgroundColor = "#faf5af";
+  }
+  // Default background color for the rest of the day
+  else {
+      document.body.style.backgroundColor = "#f7c4c4";
+   
+  }
+}
+
+// Call the function initially to set the background color
+document.addEventListener("DOMContentLoaded", updateBackground);
+
+// Update the background color every minute
+setInterval(updateBackground, 60000); // Update every minute
