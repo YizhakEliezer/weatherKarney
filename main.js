@@ -57,6 +57,7 @@ async function main() {
     } else {
         // Geolocation is not supported by this browser
         console.log('Geolocation is not supported by this browser.');
+         alert('הדלק מיקום בבקשה ');
     }
 
 
